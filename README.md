@@ -3,7 +3,7 @@
 ## Introduction
 
 A Python implementation of the coding problem [found
-here](https://github.com/mikehadlow/Journeys), which I initially found ]via
+here](https://github.com/mikehadlow/Journeys), which I initially found [via
 Kim Richmond](https://github.com/Lethrir/Journeys).
 
 ## Running
