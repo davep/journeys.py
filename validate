@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+"""Python 3.8 implementation of the Journeys problem.
+
+See https://github.com/mikehadlow/Journeys
+"""
+
+##############################################################################
+# Import the journey loading code.
+from journeys.reader import journeys
+
+# If we're being run as stand-alone code...
+if __name__ == "__main__":
+    # For every journey we can find in the sample file...
+    for journey in journeys( open( "./journeys.txt" ) ):
+        # ...print the result.
+        print(
+            f"{'GOOD' if journey.is_valid else 'BAD'}: "
+            f"{journey.start_state} -> {','.join(journey.commands)} -> {journey.end_state}"
+        )
+
+### validate ends here
