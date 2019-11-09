@@ -6,7 +6,7 @@ import re
 
 ##############################################################################
 # Local imports.
-from .state    import State, NORTH, EAST, SOUTH, WEST
+from .state    import State, COMPASS
 from .journey  import Journey
 from .commands import COMMANDS
 
@@ -23,7 +23,7 @@ class InvalidCommands( Exception ):
 ##############################################################################
 # Regular expression to read a state line.
 STATE_FORMAT = re.compile(
-    rf"^(\d+) (\d+) ([{NORTH+EAST+SOUTH+WEST}])$"
+    rf"^(\d+) (\d+) ([{''.join(COMPASS)}])$"
 )
 
 ##############################################################################
