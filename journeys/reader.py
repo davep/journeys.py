@@ -22,9 +22,7 @@ class InvalidCommands( Exception ):
 
 ##############################################################################
 # Regular expression to read a state line.
-STATE_FORMAT = re.compile(
-    rf"^(\d+) (\d+) ([{''.join(COMPASS)}])$"
-)
+STATE_FORMAT = re.compile( rf"^(\d+) (\d+) ([{''.join(COMPASS)}])$" )
 
 ##############################################################################
 # Parse the given line as state.
