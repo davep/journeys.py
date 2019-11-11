@@ -67,7 +67,7 @@ def parse_commands( text ):
         return list( commands.groups()[ 0 ] )
 
     # We can't handle that as a command line, throw an exception to say so.
-    raise InvalidCommands( f"'{text} is an invalid command line" )
+    raise InvalidCommands( f"'{text}' is an invalid command line" )
 
 ##############################################################################
 # Class for reading in the journey input.
