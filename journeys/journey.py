@@ -3,6 +3,7 @@
 ##############################################################################
 # General imports.
 from dataclasses import dataclass
+from typing      import List
 
 ##############################################################################
 # Local imports.
@@ -27,10 +28,10 @@ class Journey:
     end_state: State
 
     #: The commands for the robot.
-    commands: list
+    commands: List[ str ]
 
     @property
-    def is_valid( self ):
+    def is_valid( self ) -> bool:
         """Does the journey data look valid?
 
         :type: bool

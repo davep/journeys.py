@@ -3,6 +3,7 @@
 ##############################################################################
 # General imports.
 from dataclasses import dataclass, replace
+from typing      import List
 
 ##############################################################################
 # Exception used to convey problems with the State class.
@@ -49,7 +50,7 @@ class State:
     #: Direction the robot is facing.
     facing: str = EAST
 
-    def _turn( self, compass ):
+    def _turn( self, compass: List[ str ] ) -> State:
         """Make a 90 degree turn on the given compass.
 
         :param list compass: List of compass directions to turn through.
@@ -58,7 +59,7 @@ class State:
         """
         return replace( self, facing=compass[ compass.index( self.facing ) - 1 ] )
 
-    def left( self ):
+    def left( self ) -> State:
         """Make a 90 degree turn to the left.
 
         :returns: A new state.
@@ -66,7 +67,7 @@ class State:
         """
         return self._turn( COMPASS )
 
-    def right( self ):
+    def right( self ) -> State:
         """Make a 90 degree turn to the right.
 
         :returns: A new state.
@@ -74,7 +75,7 @@ class State:
         """
         return self._turn( list( reversed( COMPASS ) ) )
 
-    def forward( self ):
+    def forward( self ) -> State:
         """Move forward one position.
 
         :returns: self
@@ -96,7 +97,7 @@ class State:
         # We appear to have being facing in a direction we don't know about.
         raise StateException( f"Facing in unknown direction '{self.facing}'" )
 
-    def __str__( self ):
+    def __str__( self ) -> str:
         """Return a string representation of the state."""
         return f"{self.x_pos} {self.y_pos} {self.facing}"
 

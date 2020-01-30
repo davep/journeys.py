@@ -3,6 +3,7 @@
 ##############################################################################
 # General imports.
 import re
+from   typing import List, Iterator, TextIO
 
 ##############################################################################
 # Local imports.
@@ -26,7 +27,7 @@ STATE_FORMAT = re.compile( rf"^(\d+) (\d+) ([{''.join(COMPASS)}])$" )
 
 ##############################################################################
 # Parse the given line as state.
-def parse_state( text ):
+def parse_state( text: str ) -> State:
     """Parse a given line of text as a robot state.
 
     :param str text: The text to parse.
@@ -53,12 +54,12 @@ COMMANDS_FORMAT = re.compile( rf"^([{''.join(COMMANDS.keys())}]+)$" )
 
 ##############################################################################
 # Parse a command line.
-def parse_commands( text ):
+def parse_commands( text: str ) -> List[ str ]:
     """Parse a line of text as robot commands.
 
     :param str text: The line of text to parse.
     :returns: A list of commands to perform.
-    :rtype: list
+    :rtype: list[ str ]
     :raises InvalidCommands:
     """
 
@@ -71,11 +72,11 @@ def parse_commands( text ):
 
 ##############################################################################
 # Class for reading in the journey input.
-def journeys( source ):
+def journeys( source: TextIO ) -> Iterator[ Journey ]:
     """Read the journeys found in the given source.
 
-    :param TextIOBase source: A stream that is a source of journeys.
-    :returns: A journey generator.
+    :param TextIO source: A stream that is a source of journeys.
+    :returns: A journey iterator.
     :rtype: Iterator[Journey]
     """
 

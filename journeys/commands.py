@@ -1,6 +1,14 @@
 """Module that provides a method of playing robot commands."""
 
 ##############################################################################
+# Python imports.
+from typing import List
+
+##############################################################################
+# Local imports.
+from .state import State
+
+##############################################################################
 # Exception used to convey problems with the commands.
 class CommandException( Exception ):
     """Exception thrown if there is a problem with a command."""
@@ -15,7 +23,7 @@ COMMANDS = {
 
 ##############################################################################
 # Perform a list of commands starting with an initial state.
-def perform( commands, state ):
+def perform( commands: List[ str ], state: State ) -> State:
     """Perform a list of commands for a robot.
 
     :param list commands: The list of commands to perform.
