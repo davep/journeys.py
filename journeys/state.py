@@ -50,7 +50,7 @@ class State:
     #: Direction the robot is facing.
     facing: str = EAST
 
-    def _turn( self, compass: List[ str ] ) -> State:
+    def _turn( self, compass: List[ str ] ) -> "State":
         """Make a 90 degree turn on the given compass.
 
         :param list compass: List of compass directions to turn through.
@@ -59,7 +59,7 @@ class State:
         """
         return replace( self, facing=compass[ compass.index( self.facing ) - 1 ] )
 
-    def left( self ) -> State:
+    def left( self ) -> "State":
         """Make a 90 degree turn to the left.
 
         :returns: A new state.
@@ -67,7 +67,7 @@ class State:
         """
         return self._turn( COMPASS )
 
-    def right( self ) -> State:
+    def right( self ) -> "State":
         """Make a 90 degree turn to the right.
 
         :returns: A new state.
@@ -75,7 +75,7 @@ class State:
         """
         return self._turn( list( reversed( COMPASS ) ) )
 
-    def forward( self ) -> State:
+    def forward( self ) -> "State":
         """Move forward one position.
 
         :returns: self
